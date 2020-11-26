@@ -1,0 +1,20 @@
+{
+  "name": "indielogin/client",
+  "description": "IndieLogin Client Library",
+  "require": {
+    "php": ">7.2.0",
+    "indieauth/client": "^1.1.3"
+  },
+  "license": "Apache-2.0",
+  "authors": [
+    {
+      "name": "Aaron Parecki",
+      "homepage": "https://aaronparecki.com"
+    }
+  ],
+  "autoload": {
+    "psr-0": {
+      "IndieLogin": "src/"
+    }
+  }
+}
