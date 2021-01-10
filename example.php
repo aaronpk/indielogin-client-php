@@ -33,7 +33,7 @@ if(!isset($_GET['code'])) {
   die();
 }
 
-list($user, $error) = IndieAuth\Client::complete($_GET);
+list($user, $error) = IndieLogin\Client::complete($_GET);
 
 echo '<pre>';
 print_r($user);

@@ -5,16 +5,14 @@ class Client extends \IndieAuth\Client {
 
   public static $server;
 
-  public static function begin($url, $scope=false, $authorizationEndpoint=false) {
-
+  public static function discoverAuthorizationEndpoint($url) {
     // First try to find the user's authorization endpoint and continue directly if one is found
-    $authorizationEndpoint = self::discoverAuthorizationEndpoint(self::normalizeMeURL($url));
+    $authorizationEndpoint = parent::discoverAuthorizationEndpoint($url);
 
-    if(!$authorizationEndpoint) {
-      $authorizationEndpoint = self::$server.'/auth';
-    }
-
-    return parent::begin($url, $scope, $authorizationEndpoint);
+    if($authorizationEndpoint)
+      return $authorizationEndpoint;
+    else
+      return self::$server.'/auth';
   }
 
 }
